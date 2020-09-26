@@ -1,13 +1,15 @@
 import React from 'react';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+
 import BusinessNews from './components/news/BusinessNews';
 import TechnologNews from './components/news/TechnologyArticles'
-import { BrowserRouter, Link, Route } from 'react-router-dom'
 import SportsNews from './components/news/SportsNews';
 import EntertainmentNews from './components/news/EntertainmentNews';
 import GeneralNews from './components/news/GeneralNews';
 import HealthNews from './components/news/HealthNews';
 import ScienceNews from './components/news/ScienceNews';
 import Search from './components/news/Search';
+import Headlines from './components/news/Headlines';
 
 function App() {
 
@@ -19,6 +21,9 @@ function App() {
         </div>
         <div>
           <ul className="nav nav-tabs">
+            <li className="nav-item" id="0">
+              <Link className="nav-link" to="/" > Headlines </Link>
+            </li>
             <li className="nav-item" id="1">
               <Link className="nav-link" to="/business" > Business </Link>
             </li>
@@ -45,14 +50,17 @@ function App() {
             </li>
           </ul>
 
-          <Route path="/business" component={BusinessNews} />
-          <Route path="/entertainment" component={EntertainmentNews} />
-          <Route path="/general" component={GeneralNews} />
-          <Route path="/health" component={HealthNews} />
-          <Route path="/science" component={ScienceNews} />
-          <Route path="/sports" component={SportsNews} />
-          <Route path="/technology" component={TechnologNews} />
-          <Route path="/search" component={Search} />
+          <Switch >
+            <Route path="/" component={Headlines} exact={true} />
+            <Route path="/business" component={BusinessNews} />
+            <Route path="/entertainment" component={EntertainmentNews} />
+            <Route path="/general" component={GeneralNews} />
+            <Route path="/health" component={HealthNews} />
+            <Route path="/science" component={ScienceNews} />
+            <Route path="/sports" component={SportsNews} />
+            <Route path="/technology" component={TechnologNews} />
+            <Route path="/search" component={Search} />
+          </Switch>
         </div>
       </div>
     </BrowserRouter>

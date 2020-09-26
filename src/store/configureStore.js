@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import articlesReducer from '../reducers/BusinessArticlesReducer';
 import entertainmentArticlesReducer from '../reducers/EntertainmentArticlesReducer';
 import generalArticlesReducer from '../reducers/GeneralArticlesReducer';
+import headlinesReducer from '../reducers/HeadlinesReducer';
 import healthArticlesReducer from '../reducers/HealthArticlesReducer';
 import scienceArticlesReducer from '../reducers/ScienceArticlesReducer';
 import sportsArticlesReducer from '../reducers/SportsArticlesReducer';
@@ -10,6 +11,7 @@ import technologyArticlesReducer from '../reducers/TechnologyArticlesReducer';
 
 const configureStore = () => {
     const store = createStore(combineReducers({
+        headlines: headlinesReducer,
         businessArticles: articlesReducer,
         entertinemnetsArticles: entertainmentArticlesReducer,
         generalArticles: generalArticlesReducer,

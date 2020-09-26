@@ -5,7 +5,7 @@ function ShowArticle(props) {
         <div className="col mb-4 mt-4">
             <div className="card" width="100%">
                 <a href={props.article.url}>
-                    <img src={props.article.urlToImage} class="card-img-top"></img>
+                    <img src={props.article.urlToImage} class="card-img-top" height= "500"></img>
                 </a>
                 <div className="card-body">
                     <h5 className="card-title">{props.article.title}</h5>

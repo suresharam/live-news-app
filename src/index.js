@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore';
-// import { startGetNewsArticles } from './actions/ArticlesActions';
+import { startGetNewsArticles } from './actions/ArticlesActions';
 import { Provider } from 'react-redux';
 
 const store = configureStore();
@@ -14,7 +14,7 @@ store.subscribe(() => {
   console.log('subecribed to store')
 });
 
-// store.dispatch(startGetNewsArticles({ category: 'business'}))
+store.dispatch(startGetNewsArticles({ category: 'headlines'}))
 
 const rootElement = (
   <Provider store={store}>

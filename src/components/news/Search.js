@@ -55,8 +55,8 @@ class Search extends React.Component {
                         <input className="form-control" type="text" name="searchString" value={this.state.searchString}
                             placeholder="Type here to search news" onChange={this.handleChange}></input>
                     </div>
-                    <div className="col-md-1">
-                        <button className="btn btn-danger" onClick={this.handleClick}>x</button>
+                    <div className="col-md-4 ">
+                        <button className="btn btn-danger" onClick={this.handleClick}>Clear search</button>
                     </div>
                 </div>
                 {

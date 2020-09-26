@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+export const setHedlines = (articles) => {
+    return {
+        type: 'SET_HEADLINES',
+        payload: articles
+    }
+}
+
 export const setBusinessArticles = (articles) => {
     return {
         type: 'SET_BUSINESS_ARTICLES',
@@ -64,6 +71,15 @@ export const startGetNewsArticles = params => {
             .then(response => {
                 const { articles } = response.data
                 switch (category) {
+                    case 'headlines' : {
+                        if (response.data.totalResults > 0) {
+                            dispatch(setHedlines(articles));
+                        } else {
+                            dispatch(setHedlines([])) // empty array when no articles found
+                        }
+                        break;
+                    }
+
                     case 'business': {
                         if (response.data.totalResults > 0) {
                             dispatch(setBusinessArticles(articles));
@@ -143,7 +159,13 @@ const getRequestDetails = params => {
     const { category } = params;
     const country = process.env.REACT_APP_COUNTRY;
     const apiKey = process.env.REACT_APP_API_KEY;
-    const url = `http://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=100`;
+    let url;
+    if (category !== 'headlines') {
+        url = `http://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=100`;
+    } else {
+        url = `http://newsapi.org/v2/top-headlines?country=${country}&pageSize=100`;
+    }
+    
     const options = {
         headers: {
             'X-Api-Key': apiKey
