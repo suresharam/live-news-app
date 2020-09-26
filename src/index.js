@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import configureStore from './store/configureStore'
+import {startGetBusinessArticles} from './actions/ArticlesActions';
 
-ReactDOM.render(
-  <React.StrictMode>
+const store = configureStore();
+
+store.subscribe(() => {
+  console.log('subecribed to store')
+});
+
+store.dispatch(startGetBusinessArticles())
+
+const rootElement = (
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>
+);
+
+ReactDOM.render( rootElement, 
   document.getElementById('root')
 );
 
