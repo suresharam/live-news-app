@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { startGetNewsArticles } from '../../actions/ArticlesActions';
 import ShowArticle from '../article/ShowArticle';
 
-function BusinessNews(props) {
+function HealthNews(props) {
 
     if (props.articles.length === 0) {
-        props.dispatch(startGetNewsArticles({ category: 'business' }))
+        props.dispatch(startGetNewsArticles({ category: 'health' }))
     }
 
     return (
@@ -31,8 +31,8 @@ function BusinessNews(props) {
 
 const mapStateToProps = (state) => {
     return {
-        articles: state.businessArticles
+        articles: state.healthArticles
     }
 }
 
-export default connect(mapStateToProps)(BusinessNews);
+export default connect(mapStateToProps)(HealthNews);

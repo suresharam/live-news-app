@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { startGetNewsArticles } from '../../actions/ArticlesActions';
+
 import ShowArticle from '../article/ShowArticle';
 
-function BusinessNews(props) {
+function TechnologyNews(props) {
 
     if (props.articles.length === 0) {
-        props.dispatch(startGetNewsArticles({ category: 'business' }))
+        props.dispatch(startGetNewsArticles({ category: 'technology' }))
     }
 
     return (
@@ -31,8 +32,8 @@ function BusinessNews(props) {
 
 const mapStateToProps = (state) => {
     return {
-        articles: state.businessArticles
+        articles: state.technologyArticles
     }
 }
 
-export default connect(mapStateToProps)(BusinessNews);
+export default connect(mapStateToProps)(TechnologyNews);
