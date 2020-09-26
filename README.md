@@ -15,7 +15,7 @@
 
     `REACT_APP_COUNTRY=gb`
 
-    `REACT_APP_API_KEY=<your [newsapi.org](https://newsapi.org/ "newsapi.org's home page") apiKey>`
+    `REACT_APP_API_KEY=<your `[newsapi.org](https://newsapi.org/ "newsapi.org's home page")` apiKey>`
 
 4. Run the app
 
